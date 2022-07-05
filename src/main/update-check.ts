@@ -7,7 +7,7 @@ export async function checkForUpdate (context: BrowserWindow) {
   if (isDev) return
 
   const res = await axios.get(
-    'https://github.com/antonreshetov/image-optimizer/releases/latest'
+    'https://github.com/yaming116/image-optimizer/releases/latest'
   )
 
   if (res) {

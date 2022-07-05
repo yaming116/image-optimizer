@@ -5,34 +5,65 @@ export default {
   productName: 'Image Optimizer',
   appId: 'com.antonreshetov.image-optimizer',
   directories: {
-    output: path.resolve(__dirname, '../../../dist')
-  },
-  nsis: {
-    oneClick: false,
-    perMachine: false,
-    allowToChangeInstallationDirectory: true,
-    shortcutName: 'Image Optimizer'
+    output: './dist'
   },
   mac: {
     target: [
-      { target: 'dmg', arch: 'arm64' },
-      { target: 'dmg', arch: 'x64' }
+      {
+        target: 'dmg',
+        arch: 'x64'
+      }
     ]
   },
   win: {
     target: 'nsis'
   },
+  nsis: {
+    deleteAppDataOnUninstall: true,
+    oneClick: false,
+    perMachine: false,
+    allowToChangeInstallationDirectory: true,
+    shortcutName: 'Image Optimizer'
+  },
   linux: {
-    target: ['snap']
+    category: 'Utility',
+    desktop: {
+      StartupNotify: 'false',
+      Encoding: 'UTF-8',
+      MimeType: 'x-scheme-handler/deeplink'
+    },
+    maintainer: 'Anton Reshetov',
+    target: [
+      {
+        target: 'AppImage',
+        arch: ['x64']
+      },
+      {
+        target: 'snap',
+        arch: ['x64']
+      }
+    ]
   },
   extraMetadata: {
     main: 'src/main/index.js'
   },
   fileAssociations: [
-    { name: 'JPG', ext: 'jpg' },
-    { name: 'PNG', ext: 'png' },
-    { name: 'GIF', ext: 'gif' },
-    { name: 'SVG', ext: 'svg' }
+    {
+      name: 'JPG',
+      ext: 'jpg'
+    },
+    {
+      name: 'PNG',
+      ext: 'png'
+    },
+    {
+      name: 'GIF',
+      ext: 'gif'
+    },
+    {
+      name: 'SVG',
+      ext: 'svg'
+    }
   ],
   files: [
     '!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}',

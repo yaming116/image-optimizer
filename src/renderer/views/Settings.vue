@@ -1,15 +1,15 @@
 <template>
   <div class="settings">
-    <h2>Settings</h2>
+    <h2>设置</h2>
     <div class="settings__body">
-      <AppSettingRow title="JPEG Quality (mozjpeg)">
+      <AppSettingRow title="JPEG质量 (mozjpeg)">
         <AppInput
           v-model="jpegQuality"
           type="number"
           :valid="jpegQuality > 0"
         />
       </AppSettingRow>
-      <AppSettingRow title="PNG Quality Range (pngquant)">
+      <AppSettingRow title="PNG质量范围 (pngquant)">
         <div class="flex">
           <AppInput
             v-model="pngQualityMin"
@@ -24,19 +24,19 @@
           />
         </div>
       </AppSettingRow>
-      <AppSettingRow title="Convert JPG / PNG to WebP">
+      <AppSettingRow title="转换 JPG / PNG to WebP">
         <AppToggle v-model="convertToWebp" />
       </AppSettingRow>
-      <AppSettingRow title="Add '.min' suffix to optimized files">
+      <AppSettingRow title="压缩后文件名添加 '.mini'">
         <AppToggle v-model="addMinSuffix" />
       </AppSettingRow>
-      <AppSettingRow title="Add optimized file into subfolder 'minified'">
+      <AppSettingRow title="压缩后文件输出在 'minified' 文件夹">
         <AppToggle v-model="addToSubfolder" />
       </AppSettingRow>
-      <AppSettingRow title="Clear result list when new image added">
+      <AppSettingRow title="添加新文件是否清空历史记录">
         <AppToggle v-model="clearResultList" />
       </AppSettingRow>
-      <AppSettingRow title="Animation on completion">
+      <AppSettingRow title="压缩动画">
         <AppToggle v-model="animationOnCompletion" />
       </AppSettingRow>
     </div>

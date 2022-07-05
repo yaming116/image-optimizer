@@ -3,25 +3,25 @@
     <div class="list__header">
       <div class="list__header-item">
         <div class="label">
-          Original Size:
+          原始大小:
         </div>
         <h2>{{ total.originalSize }}</h2>
       </div>
       <div class="list__header-item">
         <div class="label">
-          Optimized Size:
+          压缩后大小:
         </div>
         <h2>{{ total.compressedSize }}</h2>
       </div>
       <div class="list__header-item">
         <div class="label">
-          Compression:
+          压缩率:
         </div>
         <h2>{{ total.compressionPercentage }} %</h2>
       </div>
       <div class="list__header-item">
         <div class="label">
-          Current Job Time:
+          消耗时间:
         </div>
         <h2>{{ store.jobTime }}</h2>
       </div>
@@ -31,12 +31,12 @@
         <thead>
           <tr>
             <th width="280">
-              Name
+              图片名称
             </th>
-            <th>Original Size</th>
-            <th>Optimized Size</th>
+            <th>原始大小</th>
+            <th>压缩后大小</th>
             <th align="right">
-              Compression
+              压缩率
             </th>
           </tr>
         </thead>

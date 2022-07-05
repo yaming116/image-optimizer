@@ -11,8 +11,8 @@
         width="150"
         height="150"
       />
-      <h2>Drag files or folder here</h2>
-      <p>support only JPG, PNG, GIF and SVG</p>
+      <h2>拖动文件或文件夹</h2>
+      <p>支持文件格式 JPG, PNG, GIF and SVG</p>
     </div>
   </div>
 </template>
@@ -47,7 +47,6 @@ const onDragLeave = (e: DragEvent) => {
 </script>
 
 <style lang="scss" scoped>
-
 .app-drag-area {
   border: 2px dashed var(--color-gray-300);
   border-radius: 6px;

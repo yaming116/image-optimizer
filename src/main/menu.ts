@@ -72,10 +72,10 @@ export const createMenu = (
   }
 
   const file = {
-    label: 'File',
+    label: '文件',
     submenu: [
       {
-        label: 'Open Images',
+        label: '打开文件',
         async click () {
           const { filePaths } = await dialog.showOpenDialog({
             properties: ['openFile', 'openDirectory', 'multiSelections']
