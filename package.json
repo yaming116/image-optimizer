@@ -1,12 +1,12 @@
 {
   "name": "image-optimizer",
-  "version": "1.4.1",
+  "version": "1.4.0",
   "description": "A tool for optimizing images and vector graphics",
   "main": "build/src/main/index.js",
   "scripts": {
     "dev": "tsc-watch -p tsconfig.electron.json --onSuccess 'npm run dev:server'",
     "dev:server": "node build/src/scripts/dev-server.js",
-    "build": "npm run build:ci && npm run build:local",
+    "build": "npm run build:ci",
     "build:ci": "npm run build:ci:renderer && node build/src/scripts/build-frontend.js",
     "build:ci:renderer": "tsc -p tsconfig.vue.json",
     "build:local": "npm run build:local:electron && node build/src/scripts/build.js ",
@@ -17,10 +17,10 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "prepare": "husky install"
   },
-  "repository": "https://github.com/antonreshetov/image-optimizer",
+  "repository": "https://github.com/yaming116/image-optimizer",
   "author": {
-    "name": "Anton Reshetov",
-    "url": "https://github.com/antonreshetov"
+    "name": "yaming116",
+    "url": "https://github.com/yaming116"
   },
   "lint-staged": {
     "*.{js,ts,vue}": [
@@ -66,7 +66,7 @@
     "chalk": "^4.1.2",
     "chokidar": "^3.5.2",
     "electron": "^16.0.5",
-    "electron-builder": "^22.14.5",
+    "electron-builder": "^22.10.5",
     "electron-devtools-installer": "^3.2.0",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
@@ -85,5 +85,85 @@
     "unplugin-vue-components": "^0.17.11",
     "vite": "^2.7.6",
     "vue-tsc": "^0.30.0"
+  },
+  "build": {
+    "productName": "Image Optimizer",
+    "appId": "com.orangecode.image-optimizer-yaming116",
+    "directories": {
+      "output": "./dist"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "deleteAppDataOnUninstall": true,
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Image Optimizer"
+    },
+    "linux": {
+      "category": "Utility",
+      "desktop": {
+        "StartupNotify": "false",
+        "Encoding": "UTF-8",
+        "MimeType": "x-scheme-handler/deeplink"
+      },
+      "icon": "./logo.png",
+      "maintainer": "Chris Hayes",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "snap",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "extraMetadata": {
+      "main": "src/main/index.js"
+    },
+    "fileAssociations": [
+      {
+        "name": "JPG",
+        "ext": "jpg"
+      },
+      {
+        "name": "PNG",
+        "ext": "png"
+      },
+      {
+        "name": "GIF",
+        "ext": "gif"
+      },
+      {
+        "name": "SVG",
+        "ext": "svg"
+      }
+    ],
+    "files": [
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "package.json",
+      {
+        "from": "build/src",
+        "to": "src",
+        "filter": [
+          "main/**/*.js",
+          "renderer/**/*"
+        ]
+      }
+    ]
   }
 }
