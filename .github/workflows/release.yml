@@ -26,6 +26,9 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: '>=16.8.0'
+      - shell: bash
+        run: |
+          ls -all
 
       - name: Install Snapcraft
         uses: samuelmeuli/action-snapcraft@v1
