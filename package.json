@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsc-watch -p tsconfig.electron.json --onSuccess 'npm run dev:server'",
     "dev:server": "node build/src/scripts/dev-server.js",
-    "build": "npm run build:ci",
+    "build": "npm run build:ci && npm run build:local",
     "build:ci": "npm run build:ci:renderer && node build/src/scripts/build-frontend.js",
     "build:ci:renderer": "tsc -p tsconfig.vue.json",
     "build:local": "npm run build:local:electron && node build/src/scripts/build.js ",
