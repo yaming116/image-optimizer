@@ -1,4 +1,4 @@
-name: Build Multi-Platform Electron Release
+name: Build linux Electron Release
 
 on:
   # Triggers the workflow on new tag pushed
