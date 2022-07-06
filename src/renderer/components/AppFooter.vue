@@ -10,7 +10,7 @@
         <SvgArrowCircleUp />
       </div>
       <RouterLink
-        v-slot="{navigate}"
+        v-slot="{ navigate }"
         to="/settings"
         custom
       >
@@ -23,7 +23,7 @@
         </div>
       </RouterLink>
       <RouterLink
-        v-slot="{navigate}"
+        v-slot="{ navigate }"
         to="/"
         custom
       >
@@ -50,10 +50,7 @@ const updateAvailable = ref(false)
 const showSettingsButton = computed(() => route.path === '/')
 
 const onUpdate = () => {
-  ipc.send(
-    'open-url',
-    'https://github.com/antonreshetov/image-optimizer/releases'
-  )
+  ipc.send('open-url', 'https://github.com/yaming116/image-optimizer/releases')
 }
 
 ipc.on('update-available', () => {

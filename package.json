@@ -1,6 +1,6 @@
 {
   "name": "image-optimizer",
-  "version": "1.4.1",
+  "version": "1.4.3",
   "description": "A tool for optimizing images and vector graphics",
   "main": "build/src/main/index.js",
   "scripts": {
